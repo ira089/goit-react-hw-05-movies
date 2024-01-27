@@ -5,7 +5,7 @@ import { moviesDetailsApi } from 'components/api/api'
 import styles from './MovieDetails.module.css'
 
  const MovieDetails = () => {
-    const [movieDet, setMovieDet]= useState([])
+    const [movieDet, setMovieDet]= useState({})
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -42,10 +42,10 @@ const goBack = () => navigate(from);
 const {title, poster_path, vote_average, overview, genres, release_date} = movieDet;
 // console.log(genres);
 // console.log(release_date)
-const year = release_date.substring(0, 4);
+const year = release_date?.substring(0, 4);
 console.log(year);
-const genresArr = genres.map((item) => item.name);
-const genresString = genresArr.join(' ');
+const genresArr = genres?.map((item) => item.name);
+const genresString = genresArr?.join(' ');
 console.log(genresString)
 console.log(typeof(vote_average))     
 const userScore = Math.round(vote_average * 10);
