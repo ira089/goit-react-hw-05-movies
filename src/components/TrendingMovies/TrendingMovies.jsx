@@ -17,7 +17,7 @@ import styles from './TrendingMovies.module.css'
                 setLoading(true);
                 const dataMovies = await tredingMoviesApi();
                 const arrMovies = dataMovies.results
-                console.log(arrMovies)
+                // console.log(arrMovies)
                 setTrendingMovies(arrMovies)
                 // setPosts(data?.length ? data : []);
             }
@@ -38,7 +38,6 @@ const elements = trendingMovies.map(({ id, title }) => (<li key={id} className={
 
 
   return (
-    // <h2>Trending today</h2>
     <>
     {error && <p className={styles.error}>{error}</p>}
     {loading && <p>...Loading</p>}
