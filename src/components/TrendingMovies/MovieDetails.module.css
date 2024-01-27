@@ -1,0 +1,17 @@
+.btn {
+    margin-left: 16px;
+    margin-bottom: 10px;
+}
+
+.wrap {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 10px;
+    margin-left: 16px;
+}
+
+.wrapText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
