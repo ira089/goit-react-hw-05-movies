@@ -35,18 +35,21 @@ useEffect(() => {
 
     fetchMoviesDet(id);
 
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+
+}, [id]);
 
 const goBack = () => navigate(from);
 const {title, poster_path, vote_average, overview, genres, release_date} = movieDet;
-console.log(genres);
-console.log(release_date)
+// console.log(genres);
+// console.log(release_date)
 const year = release_date.substring(0, 4);
 console.log(year);
 const genresArr = genres.map((item) => item.name);
 const genresString = genresArr.join(' ');
 console.log(genresString)
+console.log(typeof(vote_average))     
+const userScore = Math.round(vote_average * 10);
+console.log(userScore)
 
 const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'
 
@@ -64,7 +67,7 @@ const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/
         } alt='poster' width={250}/>
          <div className={styles.wrapText}>
              <h2>{title} ({year})</h2>
-            <p>User Score: {vote_average}</p>
+            <p>User Score: {userScore}%</p>
             <h3>Overview</h3>
             <p>{overview}</p>
             <h3>Genres</h3>
