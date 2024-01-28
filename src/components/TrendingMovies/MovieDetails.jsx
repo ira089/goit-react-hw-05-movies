@@ -21,6 +21,7 @@ const MovieDetails = () => {
   // console.log(location);
   // const backLink = location.state?.from ?? '/';
   // console.log(backLink);
+
   const navigate = useNavigate();
 
   useEffect(() => {
