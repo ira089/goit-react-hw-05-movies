@@ -16,7 +16,7 @@ const ReviewsPage = () => {
         setLoading(true);
         const dataReview = await reviewApi(id);
         const arrReview = dataReview.results;
-        console.log(arrReview);
+        // console.log(arrReview);
         setMovieReview(arrReview?.length ? arrReview : []);
       } catch (error) {
         setError(error.message);
@@ -26,7 +26,7 @@ const ReviewsPage = () => {
     };
     fetchMoviesReview(id);
   }, [id]);
-  console.log(movieReview);
+  // console.log(movieReview);
 
   const elements = movieReview.map(({ id, author, content }) => (
     <li key={id}>

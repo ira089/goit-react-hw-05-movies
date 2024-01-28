@@ -2,10 +2,10 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import {
   useParams,
-  useNavigate,
   useLocation,
   Link,
   Outlet,
+  useNavigate,
 } from 'react-router-dom';
 import { moviesDetailsApi } from 'components/api/api';
 import styles from './MovieDetails.module.css';
@@ -18,7 +18,9 @@ const MovieDetails = () => {
   const { id } = useParams();
   //   console.log(id);
   const location = useLocation();
-  const from = location.state?.from || '/';
+  // console.log(location);
+  // const backLink = location.state?.from ?? '/';
+  // console.log(backLink);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,10 +28,8 @@ const MovieDetails = () => {
       try {
         setLoading(true);
         const dataMovies = await moviesDetailsApi(id);
-        console.log(dataMovies);
-        console.log(dataMovies.title);
+        // console.log(dataMovies);
         setMovieDet(dataMovies);
-        // setPosts(data?.length ? data : []);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -40,27 +40,32 @@ const MovieDetails = () => {
     fetchMoviesDet(id);
   }, [id]);
 
-  const goBack = () => navigate(from);
+  const locationSearch = location.state?.from.search ?? '';
+  // console.log(Boolean(locationSearch));
+  // console.log(`/muvies${locationSearch}`);
+  // const goBack = () => navigate(backLink);
+  const goBack = () => {
+    locationSearch ? navigate(`/muvies${locationSearch}`) : navigate('/');
+  };
+
   const { title, poster_path, vote_average, overview, genres, release_date } =
     movieDet;
-  // console.log(genres);
-  // console.log(release_date)
+
   const year = release_date?.substring(0, 4);
-  //   console.log(year);
   const genresArr = genres?.map(item => item.name);
   const genresString = genresArr?.join(' ');
-  //   console.log(genresString);
-  //   console.log(typeof vote_average);
   const userScore = Math.round(vote_average * 10);
-  //   console.log(userScore);
 
   const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   return (
     <>
       {loading && <p>...Loading</p>}
       {error && <p>{error}</p>}
+      {/* <Link to={location.state} className={styles.btn}>
+        Go back
+      </Link> */}
       <button className={styles.btn} onClick={goBack} type="button">
         Go back
       </button>
@@ -69,8 +74,7 @@ const MovieDetails = () => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-              : // [<https://image.tmdb.org/t/p/w500/${poster_path}>](<https://image.tmdb.org/t/p/w500/$%7poster_path%7D>)
-                defaultImg
+              : defaultImg
           }
           alt="poster"
           width={250}
@@ -91,7 +95,9 @@ const MovieDetails = () => {
         <h5>Additional information</h5>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: location }}>
+              Cast
+            </Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>

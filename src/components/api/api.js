@@ -69,11 +69,6 @@ export async function searchMoviesApi(search) {
       },
     }
   );
-  console.log(data);
+  // console.log(data);
   return data;
 }
-
-// curl --request GET \
-//      --url 'https://api.themoviedb.org/3/movie/int572802?language=en-US' \
-//      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZTJhNjJlYzNlOWJkYjc3M2Y1YmJjNjc3NTI5ZDkyOSIsInN1YiI6IjY1YjNmNjFiMDAyMTM0MDE2NDdjMjMzZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.epkZynBE78-YD7KROr6bHdZoaxNDS6zSxB5Q7s92oo8' \
-//      --header 'accept: application/json'

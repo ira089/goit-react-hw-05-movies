@@ -22,7 +22,7 @@ const MoviesSearch = () => {
         setLoading(true);
         const dataSearch = await searchMoviesApi(searchGet);
         const arrMovies = dataSearch.results;
-        console.log(arrMovies);
+        // console.log(arrMovies);
         setSearchMovies(arrMovies?.length ? arrMovies : []);
       } catch (error) {
         setError(error.message);

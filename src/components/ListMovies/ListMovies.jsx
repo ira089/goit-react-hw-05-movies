@@ -4,6 +4,7 @@ import styles from './ListMovies.module.css';
 
 const ListMovies = ({ items }) => {
   const location = useLocation();
+  // console.log(location);
 
   const elements = items.map(({ id, title }) => (
     <li key={id} className={styles.item}>

@@ -9,7 +9,7 @@ const CastPage = () => {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const fetchMoviesCast = async () => {
@@ -29,9 +29,9 @@ const CastPage = () => {
 
     fetchMoviesCast(id);
   }, [id]);
-  console.log(movieCast);
+  // console.log(movieCast);
   const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   const elements = movieCast.map(({ id, name, character, profile_path }) => (
     <li key={id}>
