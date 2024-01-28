@@ -15,26 +15,36 @@ const ReviewsPage = () => {
       try {
         setLoading(true);
         const dataReview = await reviewApi(id);
-        console.log(dataReview);
-        setMovieReview(dataReview);
-        // setMovieCast(dataCast.cast?.length ? dataCast.cast : []);
+        const arrReview = dataReview.results;
+        console.log(arrReview);
+        setMovieReview(arrReview?.length ? arrReview : []);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
-
     fetchMoviesReview(id);
   }, [id]);
   console.log(movieReview);
+
+  const elements = movieReview.map(({ id, author, content }) => (
+    <li key={id}>
+      <h3>{author}</h3>
+      <p>{content}</p>
+    </li>
+  ));
+  const isReview = Boolean(movieReview.length);
 
   return (
     <>
       {loading && <p>...Loading</p>}
       {error && <p>{error}</p>}
-      <p>125</p>
-      {/* <ul>{elements}</ul> */}
+      {isReview ? (
+        <ul>{elements}</ul>
+      ) : (
+        "We don't have any reviews for this movie."
+      )}
     </>
   );
 };

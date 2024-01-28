@@ -16,29 +16,15 @@ const App = () => {
           <Route path="cast" element={<CastPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
         </Route>
-        <Route path="muvies" element={<MuviesPage />}></Route>
-        {/* <Route path="muvies" element={<MuviesPage />} /> */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
+
+        <Route path="muvies" element={<MuviesPage />} />
+        <Route path="/:id" element={<MovieDetails />}>
+          <Route path="cast" element={<CastPage />} />
+          <Route path="reviews" element={<ReviewsPage />} />
+        </Route>
       </Route>
     </Routes>
   );
 };
 
 export default App;
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };

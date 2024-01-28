@@ -14,6 +14,8 @@ const MoviesSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchGet = searchParams.get('search');
 
+  // const location = useLocation();
+
   useEffect(() => {
     const fetchSearch = async () => {
       try {
