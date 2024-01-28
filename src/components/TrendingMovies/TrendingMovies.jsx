@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import tredingMoviesApi from 'components/api/api';
-import styles from './TrendingMovies.module.css';
+import styles from '../Header/header.module.css';
 
 const TrendingMovies = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -32,7 +32,7 @@ const TrendingMovies = () => {
   }, []);
 
   const elements = trendingMovies.map(({ id, title }) => (
-    <li key={id} className={styles.item}>
+    <li key={id}>
       <Link to={`/${id}`} state={{ from: location }}>
         {title}
       </Link>

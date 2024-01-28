@@ -1,17 +1,12 @@
-// import Header from 'components/Header/Header'
-import React from 'react'
-// import { Outlet } from 'react-router-dom'
-import TrendingMovies from 'components/TrendingMovies/TrendingMovies'
+import React from 'react';
+import TrendingMovies from 'components/TrendingMovies/TrendingMovies';
 
- const HomePage = () => {
+const HomePage = () => {
   return (
-    
     <div>
-<TrendingMovies/>
+      <TrendingMovies />
     </div>
+  );
+};
 
-    
-  )
-}
-
-export default HomePage
+export default HomePage;

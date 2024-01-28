@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FormSearchMovies from '../FormSearchMovies/FormSearchMovies';
 import ListMovies from 'components/ListMovies/ListMovies';
-import styles from './MoviesSearch.module.css';
+import styles from '../Header/header.module.css';
 import { searchMoviesApi } from '../api/api';
 
 const MoviesSearch = () => {

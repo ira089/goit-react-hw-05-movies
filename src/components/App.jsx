@@ -8,10 +8,10 @@ import { Layout } from '../Pages/Layout/Layout';
 // import CastPage from 'Pages/Cast/CastPage';
 // import ReviewsPage from 'Pages/Reviews/ReviewsPage';
 
-const MovieDetails = lazy(() => import('./TrendingMovies/MovieDetails'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
 const CastPage = lazy(() => import('Pages/Cast/CastPage'));
 const ReviewsPage = lazy(() => import('Pages/Reviews/ReviewsPage'));
-const MuviesPage = lazy(() => import('Pages/Muvies/MuviesPage'));
+const MoviesPage = lazy(() => import('Pages/Movies/MoviesPage'));
 
 const App = () => {
   return (
@@ -24,10 +24,10 @@ const App = () => {
         </Route>
 
         <Route
-          path="muvies"
+          path="movies"
           element={
             <Suspense>
-              <MuviesPage />
+              <MoviesPage />
             </Suspense>
           }
         />

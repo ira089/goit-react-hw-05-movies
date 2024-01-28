@@ -46,7 +46,7 @@ const MovieDetails = () => {
   // console.log(`/muvies${locationSearch}`);
   // const goBack = () => navigate(backLink);
   const goBack = () => {
-    locationSearch ? navigate(`/muvies${locationSearch}`) : navigate('/');
+    locationSearch ? navigate(`/muvies:${locationSearch}`) : navigate('/');
   };
 
   const { title, poster_path, vote_average, overview, genres, release_date } =
@@ -96,9 +96,7 @@ const MovieDetails = () => {
         <h5>Additional information</h5>
         <ul>
           <li>
-            <Link to="cast" state={{ from: location }}>
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>
