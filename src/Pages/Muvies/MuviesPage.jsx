@@ -1,13 +1,11 @@
+import React from 'react';
+import MoviesSearch from 'components/MoviesSearch/MoviesSearch';
 
-import React from 'react'
-
- const MuviesPage = () => {
+const MuviesPage = () => {
   return (
-   <div>
-    MuviesPage
-   </div>
-   
-  )
-}
-
-export default MuviesPage
+    <div>
+      <MoviesSearch />
+    </div>
+  );
+};
+export default MuviesPage;

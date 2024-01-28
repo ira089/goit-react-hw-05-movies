@@ -55,6 +55,20 @@ export async function reviewApi(id) {
       },
     }
   );
+  // console.log(data);
+  return data;
+}
+
+export async function searchMoviesApi(search) {
+  const { data } = await axios.get(
+    `${BASE_URL}search/movie?query=${search}&include_adult=false&language=en-US&page=1`,
+    {
+      headers: {
+        Authorization: API_KEY,
+        accept: 'application/json',
+      },
+    }
+  );
   console.log(data);
   return data;
 }

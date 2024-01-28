@@ -16,8 +16,8 @@ const App = () => {
           <Route path="cast" element={<CastPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
         </Route>
-        {/* <Route path="/:id" element={<MovieDetails />}/> */}
-        <Route path="muvies" element={<MuviesPage />} />
+        <Route path="muvies" element={<MuviesPage />}></Route>
+        {/* <Route path="muvies" element={<MuviesPage />} /> */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Route>
     </Routes>
