@@ -10,6 +10,9 @@ const ReviewsPage = () => {
 
   const { id } = useParams();
 
+  // const location = useLocation();
+  // console.log(location);
+
   useEffect(() => {
     const fetchMoviesReview = async () => {
       try {

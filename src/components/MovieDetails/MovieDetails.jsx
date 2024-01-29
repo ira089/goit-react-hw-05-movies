@@ -40,14 +40,32 @@ const MovieDetails = () => {
 
     fetchMoviesDet(id);
   }, [id]);
-
-  const locationSearch = location.state?.from.search ?? '';
+  // const locationSearch = location.state.from.search;
+  // const locationSearch = location.state?.from.search ?? '';
+  // const locationRef = useRef(locationSearch);
+  // console.log(locationRef.current);
+  const locationSearch = location.state.from.search;
+  console.log(locationSearch);
+  // console.log(location.pathname);
+  // const qwe = location.pathname;
   // console.log(Boolean(locationSearch));
   // console.log(`/muvies${locationSearch}`);
-  // const goBack = () => navigate(backLink);
+  // const goBack = () => navigate(-2);
+  const from = location.state?.from || '/';
+  console.log(from);
+  // console.log(typeof from);
+  // const goBack = () => {
+  //   if (qwe.includes('reviews') || qwe.includes('cast')) {
+  //     navigate(-2);
+  //   }
+  //   navigate(-1);
+  // };
   const goBack = () => {
-    locationSearch ? navigate(`/muvies:${locationSearch}`) : navigate('/');
+    locationSearch ? navigate(`/movies${locationSearch}`) : navigate('/');
   };
+  // const goBack = () => {
+  //   locationSearch ? navigate(`/movies${locationRef.current}`) : navigate('/');
+  // };
 
   const { title, poster_path, vote_average, overview, genres, release_date } =
     movieDet;
@@ -96,10 +114,18 @@ const MovieDetails = () => {
         <h5>Additional information</h5>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link
+              to="reviews"
+              state={{ from }}
+              // state={{ from: `/movies${locationRef.current}` }}
+            >
+              Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />

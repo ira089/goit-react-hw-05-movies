@@ -10,6 +10,8 @@ const CastPage = () => {
 
   const { id } = useParams();
   // console.log(id);
+  // const location = useLocation();
+  // console.log(location);
 
   useEffect(() => {
     const fetchMoviesCast = async () => {
