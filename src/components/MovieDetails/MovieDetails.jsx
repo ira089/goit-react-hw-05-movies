@@ -36,7 +36,7 @@ const MovieDetails = () => {
     fetchMoviesDet(id);
   }, [id]);
 
-  const locationSearch = location.state.from.search;
+  const locationSearch = location.state?.from?.search;
   // console.log(locationSearch);
 
   const from = location.state?.from || '/';
