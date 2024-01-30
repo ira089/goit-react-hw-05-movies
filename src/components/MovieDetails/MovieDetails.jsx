@@ -16,12 +16,7 @@ const MovieDetails = () => {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
-  //   console.log(id);
   const location = useLocation();
-  // console.log(location);
-  // const backLink = location.state?.from ?? '/';
-  // console.log(backLink);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,32 +35,16 @@ const MovieDetails = () => {
 
     fetchMoviesDet(id);
   }, [id]);
-  // const locationSearch = location.state.from.search;
-  // const locationSearch = location.state?.from.search ?? '';
-  // const locationRef = useRef(locationSearch);
-  // console.log(locationRef.current);
+
   const locationSearch = location.state.from.search;
-  console.log(locationSearch);
-  // console.log(location.pathname);
-  // const qwe = location.pathname;
-  // console.log(Boolean(locationSearch));
-  // console.log(`/muvies${locationSearch}`);
-  // const goBack = () => navigate(-2);
+  // console.log(locationSearch);
+
   const from = location.state?.from || '/';
-  console.log(from);
-  // console.log(typeof from);
-  // const goBack = () => {
-  //   if (qwe.includes('reviews') || qwe.includes('cast')) {
-  //     navigate(-2);
-  //   }
-  //   navigate(-1);
-  // };
+  // console.log(from);
+
   const goBack = () => {
     locationSearch ? navigate(`/movies${locationSearch}`) : navigate('/');
   };
-  // const goBack = () => {
-  //   locationSearch ? navigate(`/movies${locationRef.current}`) : navigate('/');
-  // };
 
   const { title, poster_path, vote_average, overview, genres, release_date } =
     movieDet;
@@ -82,9 +61,6 @@ const MovieDetails = () => {
     <>
       {loading && <p>...Loading</p>}
       {error && <p>{error}</p>}
-      {/* <Link to={location.state} className={styles.btn}>
-        Go back
-      </Link> */}
       <button className={styles.btn} onClick={goBack} type="button">
         Go back
       </button>
@@ -119,11 +95,7 @@ const MovieDetails = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="reviews"
-              state={{ from }}
-              // state={{ from: `/movies${locationRef.current}` }}
-            >
+            <Link to="reviews" state={{ from }}>
               Reviews
             </Link>
           </li>

@@ -19,8 +19,7 @@ const TrendingMovies = () => {
         const dataMovies = await tredingMoviesApi();
         const arrMovies = dataMovies.results;
         // console.log(arrMovies)
-        setTrendingMovies(arrMovies);
-        // setPosts(data?.length ? data : []);
+        setTrendingMovies(arrMovies?.length ? arrMovies : []);
       } catch (error) {
         setError(error.message);
       } finally {

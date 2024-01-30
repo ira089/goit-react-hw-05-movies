@@ -9,9 +9,6 @@ const CastPage = () => {
   const [error, setError] = useState(null);
 
   const { id } = useParams();
-  // console.log(id);
-  // const location = useLocation();
-  // console.log(location);
 
   useEffect(() => {
     const fetchMoviesCast = async () => {
@@ -20,8 +17,6 @@ const CastPage = () => {
         const dataCast = await castApi(id);
         // console.log(dataCast.cast);
         setMovieCast(dataCast.cast?.length ? dataCast.cast : []);
-
-        // setPosts(data?.length ? data : []);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -31,7 +26,7 @@ const CastPage = () => {
 
     fetchMoviesCast(id);
   }, [id]);
-  // console.log(movieCast);
+
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 

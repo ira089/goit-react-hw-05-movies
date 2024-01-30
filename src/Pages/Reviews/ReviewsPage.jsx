@@ -10,9 +10,6 @@ const ReviewsPage = () => {
 
   const { id } = useParams();
 
-  // const location = useLocation();
-  // console.log(location);
-
   useEffect(() => {
     const fetchMoviesReview = async () => {
       try {
@@ -29,7 +26,6 @@ const ReviewsPage = () => {
     };
     fetchMoviesReview(id);
   }, [id]);
-  // console.log(movieReview);
 
   const elements = movieReview.map(({ id, author, content }) => (
     <li key={id}>
