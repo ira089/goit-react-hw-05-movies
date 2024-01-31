@@ -1,4 +1,5 @@
 import React from 'react';
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import {
   useParams,
@@ -100,7 +101,9 @@ const MovieDetails = () => {
             </Link>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
